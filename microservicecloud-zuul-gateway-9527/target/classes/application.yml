@@ -1,0 +1,25 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: microservice-zuul-gateway-9527
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/,http://eureka7003:7003/eureka/
+  instance:
+    instance-id: microservice-zuul-gateway-9527
+    prefer-ip-address: true
+
+zuul:
+  prefix: /test
+  ignored-services: "*"
+  routes:
+    mydept.serviceId: microservicecloud-provider-dept
+    mydept.path: /mydept/**
+
+info:
+  name: zuul
+

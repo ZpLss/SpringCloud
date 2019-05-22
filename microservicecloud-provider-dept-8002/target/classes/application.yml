@@ -1,0 +1,35 @@
+server:
+  port: 8002
+mybatis:
+  type-aliases-package: com.test.entitys #所有Entitys别名l类所在包
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+spring:
+  application:
+    name: microservicecloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/cloudDB02
+    username: root
+    password: 970806
+    driver-class-name: org.gjt.mm.mysql.Driver
+    dbcp2:
+      min-idle: 5                   #数据库连接池最小维持链接数
+      initial-size: 5               #初始化连接数
+      max-total: 5                  #最大连接数
+      max-wait-millis: 200          #等待连接获取最大超时
+
+eureka:
+  client:
+    service-url: #提供者注册进eureka列表内
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/http://eureka7003:7003/eureka/
+  instance:
+    instance-id: microservicecloud-provider-dept-8002   #指定状态名称
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info: #指定服务介绍
+  app.name: 服务提供者8002
+  host: 8002
+  build.artifactId: microservicecloud
+  build.version: 1.0-SNAPSHOT

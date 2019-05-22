@@ -1,0 +1,6 @@
+com\test\service\DeptService.class
+com\test\entitys\Base$Sub.class
+com\test\entitys\Depts.class
+com\test\service\DeptServiceFallbackFactory.class
+com\test\entitys\Base.class
+com\test\service\DeptServiceFallbackFactory$1.class

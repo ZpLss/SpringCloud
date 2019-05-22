@@ -1,0 +1,10 @@
+server:
+  port: 7003
+eureka:
+  instance:
+    hostname: eureka7003 #单机配置   hostname: localhost   #eureka服务名称
+  client:
+    register-with-eureka: false   #false代表不像注册中心注册自己
+    fetch-registry: false   #false表示本端就是注册中心，指责就是维护服务实例，不需要去检测
+    service-url: #单机配置   defaultZone: http://${eureka.instance.hostname}:${server.port}/
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/
